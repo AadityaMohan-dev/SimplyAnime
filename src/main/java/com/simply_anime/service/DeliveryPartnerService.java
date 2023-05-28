@@ -86,6 +86,32 @@ public class DeliveryPartnerService {
 		
 		return ResponseEntity.status(HttpStatus.OK).body(dp);
 	}
+
+	public ResponseEntity<Object> getDeliveryPartnerByUserName(String username, ResDelPartnerDto rdpd) {
+		Optional<DeliveryPartner> optional = Optional.of(dpr.findByUsername(username));
+		if(optional.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Delivery Partner Not Found Check your username.");
+		}
+		DeliveryPartner dp = optional.get();
+		
+		rdpd.setDiliveryPatneContact(dp.getDiliveryPatneContact());
+		rdpd.setDiliveryPatnEmail(dp.getDiliveryPatnEmail());
+		rdpd.setDiliveryPatneRating(dp.getDiliveryPatneRating());
+		rdpd.setDiliveryPatnerName(dp.getDiliveryPatnerName());
+		rdpd.setId(dp.getId());
+		rdpd.setStatus(dp.getStatus());
+		
+		return ResponseEntity.status(HttpStatus.OK).body(dp);
+	}
+
+	public ResponseEntity<Object> deleteDeliveryPartnerById(long id, ResDelPartnerDto rdpd) {
+		Optional<DeliveryPartner> optional = dpr.findById(id);
+		if(optional.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Delivery Partner Not Found Check your id.");
+		}
+		
+		return null;
+	}
 	
 	
 }
