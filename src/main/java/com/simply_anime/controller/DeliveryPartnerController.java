@@ -42,7 +42,7 @@ public class DeliveryPartnerController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Object> deleteDeliveryPartnerById(@PathVariable("id")long id,@RequestBody ResDelPartnerDto rdpd){
-		return dp.deleteDeliveryPartnerById(id,rdpd);
+	public ResponseEntity<Object> deleteDeliveryPartnerById(@PathVariable("id")long id){
+		return dp.deleteDeliveryPartnerById(id);
 	}
 }

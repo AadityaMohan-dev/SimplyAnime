@@ -104,13 +104,16 @@ public class DeliveryPartnerService {
 		return ResponseEntity.status(HttpStatus.OK).body(dp);
 	}
 
-	public ResponseEntity<Object> deleteDeliveryPartnerById(long id, ResDelPartnerDto rdpd) {
+	public ResponseEntity<Object> deleteDeliveryPartnerById(long id) {
 		Optional<DeliveryPartner> optional = dpr.findById(id);
 		if(optional.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Delivery Partner Not Found Check your id.");
 		}
 		
-		return null;
+		DeliveryPartner dp = optional.get();
+		dp.setStatus(StatusEnum.ARCHIVE);
+		dpr.save(dp);
+		return ResponseEntity.status(HttpStatus.OK).body("Account Deleted Successfully.");
 	}
 	
 	
