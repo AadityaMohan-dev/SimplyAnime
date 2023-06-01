@@ -77,7 +77,6 @@ public class ResDelPartnerDto {
 		this.status = status;
 	}
 
-	@Override
 	public String toString() {
 		return "ResDelPartnerDto [id=" + id + ", DiliveryPatnerName=" + DiliveryPatnerName + ", DiliveryPatneContact="
 				+ DiliveryPatneContact + ", DiliveryPatnEmail=" + DiliveryPatnEmail + ", DiliveryPatneRating="

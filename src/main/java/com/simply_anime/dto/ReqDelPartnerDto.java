@@ -87,7 +87,6 @@ public class ReqDelPartnerDto {
 		this.password = password;
 	}
 
-	@Override
 	public String toString() {
 		return "ReqDelPartnerDto [DiliveryPatnerName=" + DiliveryPatnerName + ", DiliveryPatneContact="
 				+ DiliveryPatneContact + ", DiliveryPatnEmail=" + DiliveryPatnEmail + ", DiliveryPatneRating="
